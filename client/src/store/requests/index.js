@@ -31,8 +31,32 @@ export const createPlaylist = (newListName, newSongs, userEmail) => {
         ownerEmail: userEmail
     })
 }
-export const deletePlaylistById = (id) => api.delete(`/playlist/${id}`)
-// export const getPlaylistById = (id) => api.get(`/playlist/${id}`)
+// export const deletePlaylistById = (id) => api.delete(`/playlist/${id}`)
+
+export const deletePlaylistById = (id) => {
+
+    return fetch(url + `/playlist/${id}`,
+      {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        if(!response) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); 
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      })
+     ;
+
+
+
+}
 
 
 export const getPlaylistById = (id) => {

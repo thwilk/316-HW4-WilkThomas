@@ -341,7 +341,7 @@ function GlobalStoreContextProvider(props) {
         async function processDelete(id) {
             let response = await storeRequestSender.deletePlaylistById(id);
             store.loadIdNamePairs();
-            if (response.data.success) {
+            if (response.success) {
                 history.push("/");
             }
         }
