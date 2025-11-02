@@ -12,6 +12,7 @@
 
 import axios from 'axios'
 axios.defaults.withCredentials = true;
+const url = "http://localhost:4000/store";
 const api = axios.create({
     baseURL: 'http://localhost:4000/store',
 })
@@ -32,7 +33,34 @@ export const createPlaylist = (newListName, newSongs, userEmail) => {
 }
 export const deletePlaylistById = (id) => api.delete(`/playlist/${id}`)
 export const getPlaylistById = (id) => api.get(`/playlist/${id}`)
-export const getPlaylistPairs = () => api.get(`/playlistpairs/`)
+
+
+
+export const getPlaylistPairs = () => {
+    return fetch(url + `/playlistpairs/`, {
+      method: 'GET',
+      credentials: 'include', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); 
+      })
+      .then((data) => {
+        console.log(data);
+        return data; 
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+
+
 export const updatePlaylistById = (id, playlist) => {
     return api.put(`/playlist/${id}`, {
         // SPECIFY THE PAYLOAD
