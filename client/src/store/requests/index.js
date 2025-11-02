@@ -23,7 +23,7 @@ const url = "http://localhost:4000/store";
 // CUSTOM FILTERS FOR QUERIES
 
 
-export const deletePlaylistByaId = (id) => {
+export const deletePlaylistById = (id) => {
 
     return fetch(url + `/playlist/${id}`,
       {
