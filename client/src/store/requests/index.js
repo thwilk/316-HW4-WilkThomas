@@ -13,9 +13,7 @@
 import axios from 'axios'
 axios.defaults.withCredentials = true;
 const url = "http://localhost:4000/store";
-const api = axios.create({
-    baseURL: 'http://localhost:4000/store',
-})
+
 
 // THESE ARE ALL THE REQUESTS WE`LL BE MAKING, ALL REQUESTS HAVE A
 // REQUEST METHOD (like get) AND PATH (like /top5list). SOME ALSO
@@ -23,17 +21,9 @@ const api = axios.create({
 // WORK, AND SOME REQUIRE DATA, WHICH WE WE WILL FORMAT HERE, FOR WHEN
 // WE NEED TO PUT THINGS INTO THE DATABASE OR IF WE HAVE SOME
 // CUSTOM FILTERS FOR QUERIES
-export const createPlaylist = (newListName, newSongs, userEmail) => {
-    return api.post(`/playlist/`, {
-        // SPECIFY THE PAYLOAD
-        name: newListName,
-        songs: newSongs,
-        ownerEmail: userEmail
-    })
-}
-// export const deletePlaylistById = (id) => api.delete(`/playlist/${id}`)
 
-export const deletePlaylistById = (id) => {
+
+export const deletePlaylistByaId = (id) => {
 
     return fetch(url + `/playlist/${id}`,
       {
@@ -108,13 +98,46 @@ export const getPlaylistPairs = () => {
   };
 
 
-
 export const updatePlaylistById = (id, playlist) => {
-    return api.put(`/playlist/${id}`, {
-        // SPECIFY THE PAYLOAD
-        playlist : playlist
+  return fetch(`${url}/playlist/${id}`, {
+    method: 'PUT',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ playlist })
+  })
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      return res.json();
     })
-}
+    .catch(err => {
+      console.error("Error updating playlist:", err);
+    });
+};
+
+export const createPlaylist = (newListName, newSongs, userEmail) => {
+  return fetch(`${url}/playlist/`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: newListName,
+      songs: newSongs,
+      ownerEmail: userEmail
+    })
+  })
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      return res.json();
+    })
+    .catch(err => {
+      console.error("Error creating playlist:", err);
+    });
+};
+
 
 const apis = {
     createPlaylist,

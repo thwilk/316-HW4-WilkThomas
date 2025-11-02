@@ -245,11 +245,11 @@ function GlobalStoreContextProvider(props) {
                 playlist.name = newName;
                 async function updateList(playlist) {
                     response = await storeRequestSender.updatePlaylistById(playlist._id, playlist);
-                    if (response.data.success) {
+                    if (response.success) {
                         async function getListPairs(playlist) {
                             response = await storeRequestSender.getPlaylistPairs();
-                            if (response.data.success) {
-                                let pairsArray = response.data.idNamePairs;
+                            if (response.success) {
+                                let pairsArray = response   .idNamePairs;
                                 storeReducer({
                                     type: GlobalStoreActionType.CHANGE_LIST_NAME,
                                     payload: {
@@ -284,9 +284,9 @@ function GlobalStoreContextProvider(props) {
         let newListName = "Untitled" + store.newListCounter;
         const response = await storeRequestSender.createPlaylist(newListName, [], auth.user.email);
         console.log("createNewList response: " + response);
-        if (response.status === 201) {
+        if (response && response.playlist) {
             tps.clearAllTransactions();
-            let newList = response.data.playlist;
+            let newList = response.playlist;
             storeReducer({
                 type: GlobalStoreActionType.CREATE_NEW_LIST,
                 payload: newList
@@ -389,7 +389,7 @@ function GlobalStoreContextProvider(props) {
                 let playlist = response.playlist;
 
                 response = await storeRequestSender.updatePlaylistById(playlist._id, playlist);
-                if (response.data.success) {
+                if (response.success) {
                     storeReducer({
                         type: GlobalStoreActionType.SET_CURRENT_LIST,
                         payload: playlist
