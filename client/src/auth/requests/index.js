@@ -10,11 +10,7 @@
     @author McKilla Gorilla
 */
 
-import axios from 'axios'
-axios.defaults.withCredentials = true;
-const api = axios.create({
-    baseURL: 'http://localhost:4000/auth',
-})
+
 
 const url = 'http://localhost:4000/auth';
 
@@ -108,16 +104,41 @@ export const logoutUser = async () => {
     }
   };
   
-
 export const registerUser = (firstName, lastName, email, password, passwordVerify) => {
-    return api.post(`/register/`, {
-        firstName : firstName,
-        lastName : lastName,
-        email : email,
-        password : password,
-        passwordVerify : passwordVerify
-    })
+
+    return fetch(url + '/register/', 
+        {
+            headers: {
+                "Content-Type": "application/json"
+              },
+            method: "POST",
+            credentials: "include",
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                passwordVerify: passwordVerify
+            })
+        })
+        .then((response) => {
+
+            if(!response.ok){ 
+                throw new Error("HTTP error");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            return data;
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
 }
+
+
+
 const apis = {
     getLoggedIn,
     registerUser,

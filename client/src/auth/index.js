@@ -79,12 +79,12 @@ function AuthContextProvider(props) {
         console.log("REGISTERING USER");
         try{   
             const response = await authRequestSender.registerUser(firstName, lastName, email, password, passwordVerify);   
-            if (response.status === 200) {
+            if (response) {
                 console.log("Registered Sucessfully");
                 authReducer({
                     type: AuthActionType.REGISTER_USER,
                     payload: {
-                        user: response.data.user,
+                        user: response.user,
                         loggedIn: true,
                         errorMessage: null
                     }
@@ -100,7 +100,7 @@ function AuthContextProvider(props) {
                 payload: {
                     user: auth.user,
                     loggedIn: false,
-                    errorMessage: error.response.data.errorMessage
+                    errorMessage: null
                 }
             })
         }
