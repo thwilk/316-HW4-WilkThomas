@@ -16,6 +16,8 @@ const api = axios.create({
     baseURL: 'http://localhost:4000/auth',
 })
 
+const url = 'http://localhost:4000/auth';
+
 // THESE ARE ALL THE REQUESTS WE`LL BE MAKING, ALL REQUESTS HAVE A
 // REQUEST METHOD (like get) AND PATH (like /register). SOME ALSO
 // REQUIRE AN id SO THAT THE SERVER KNOWS ON WHICH LIST TO DO ITS
@@ -23,7 +25,39 @@ const api = axios.create({
 // WE NEED TO PUT THINGS INTO THE DATABASE OR IF WE HAVE SOME
 // CUSTOM FILTERS FOR QUERIES
 
-export const getLoggedIn = () => api.get(`/loggedIn/`);
+// export const getLoggedIn = () => api.get(`/loggedIn/`);
+
+export const getLoggedIn = () => {
+    
+    return fetch(url + `/loggedIn`, 
+        {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        })
+        .then((response) => {
+            
+            if(!response){ 
+                console.log("error");
+                throw new Error("HTTP error");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            return data;
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+    
+
+}
+
+
+
 export const loginUser = (email, password) => {
     return api.post(`/login/`, {
         email : email,
