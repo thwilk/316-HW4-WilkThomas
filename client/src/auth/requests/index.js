@@ -88,7 +88,27 @@ export const loginUser = (email, password) =>{
       });
 }
 
-export const logoutUser = () => api.get(`/logout/`)
+
+export const logoutUser = async () => {
+    try {
+      const response = await fetch(url + `/logout/`, {
+        method: "GET",
+        credentials: "include",
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      return response.status;
+  
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
+  };
+  
+
 export const registerUser = (firstName, lastName, email, password, passwordVerify) => {
     return api.post(`/register/`, {
         firstName : firstName,
