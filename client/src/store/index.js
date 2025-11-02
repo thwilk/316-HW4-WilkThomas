@@ -219,8 +219,8 @@ function GlobalStoreContextProvider(props) {
         let id = "635f203d2e072037af2e6284";
         async function asyncSetCurrentList(id) {
             let response = await storeRequestSender.getPlaylistById(id);
-            if (response.data.success) {
-                let playlist = response.data.playlist;
+            if (response.success) {
+                let playlist = response.playlist;
                 storeReducer({
                     type: GlobalStoreActionType.SET_CURRENT_LIST,
                     payload: playlist
@@ -240,8 +240,8 @@ function GlobalStoreContextProvider(props) {
         // GET THE LIST
         async function asyncChangeListName(id) {
             let response = await storeRequestSender.getPlaylistById(id);
-            if (response.data.success) {
-                let playlist = response.data.playlist;
+            if (response.success) {
+                let playlist = response.playlist;
                 playlist.name = newName;
                 async function updateList(playlist) {
                     response = await storeRequestSender.updatePlaylistById(playlist._id, playlist);
@@ -327,8 +327,8 @@ function GlobalStoreContextProvider(props) {
     store.markListForDeletion = function (id) {
         async function getListToDelete(id) {
             let response = await storeRequestSender.getPlaylistById(id);
-            if (response.data.success) {
-                let playlist = response.data.playlist;
+            if (response.success) {
+                let playlist = response.playlist;
                 storeReducer({
                     type: GlobalStoreActionType.MARK_LIST_FOR_DELETION,
                     payload: {id: id, playlist: playlist}
@@ -385,8 +385,8 @@ function GlobalStoreContextProvider(props) {
     store.setCurrentList = function (id) {
         async function asyncSetCurrentList(id) {
             let response = await storeRequestSender.getPlaylistById(id);
-            if (response.data.success) {
-                let playlist = response.data.playlist;
+            if (response.success) {
+                let playlist = response.playlist;
 
                 response = await storeRequestSender.updatePlaylistById(playlist._id, playlist);
                 if (response.data.success) {
