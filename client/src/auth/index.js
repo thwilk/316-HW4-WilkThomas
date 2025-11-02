@@ -109,11 +109,12 @@ function AuthContextProvider(props) {
     auth.loginUser = async function(email, password) {
         try{
             const response = await authRequestSender.loginUser(email, password);
-            if (response.status === 200) {
+
+            if (response.success) {
                 authReducer({
                     type: AuthActionType.LOGIN_USER,
                     payload: {
-                        user: response.data.user,
+                        user: response.user,
                         loggedIn: true,
                         errorMessage: null
                     }
@@ -126,7 +127,7 @@ function AuthContextProvider(props) {
                 payload: {
                     user: auth.user,
                     loggedIn: false,
-                    errorMessage: error.response.data.errorMessage
+                    errorMessage: null
                 }
             })
         }

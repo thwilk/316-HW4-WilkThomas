@@ -56,14 +56,38 @@ export const getLoggedIn = () => {
 
 }
 
-
-
-export const loginUser = (email, password) => {
-    return api.post(`/login/`, {
-        email : email,
-        password : password
+export const loginUser = (email, password) =>{
+    return fetch(url+`/login/` , 
+        {
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            
+            credentials: "include",
+            body: JSON.stringify({
+                email: email,
+                password: password,
+              }),
+        }
+    )
+    .then((response) => {
+            
+        if(!response){ 
+            console.log("error");
+            throw new Error("HTTP error");
+        }
+        return response.json();
     })
+    .then((data) => {
+        console.log(data);
+        return data;
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
 }
+
 export const logoutUser = () => api.get(`/logout/`)
 export const registerUser = (firstName, lastName, email, password, passwordVerify) => {
     return api.post(`/register/`, {
