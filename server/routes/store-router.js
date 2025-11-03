@@ -5,15 +5,16 @@
     @author McKilla Gorilla
 */
 const express = require('express')
-const StoreController = require('../controllers/store-controller')
+const { store } = require('../controllers/index.js')
+
 const router = express.Router()
 const auth = require('../auth')
 
-router.post('/playlist', auth.verify, StoreController.createPlaylist)
-router.delete('/playlist/:id', auth.verify, StoreController.deletePlaylist)
-router.get('/playlist/:id', auth.verify, StoreController.getPlaylistById)
-router.get('/playlistpairs', auth.verify, StoreController.getPlaylistPairs)
-router.get('/playlists', auth.verify, StoreController.getPlaylists)
-router.put('/playlist/:id', auth.verify, StoreController.updatePlaylist)
+router.post('/playlist', auth.verify, store.createPlaylist)
+router.delete('/playlist/:id', auth.verify, store.deletePlaylist)
+router.get('/playlist/:id', auth.verify, store.getPlaylistById)
+router.get('/playlistpairs', auth.verify, store.getPlaylistPairs)
+router.get('/playlists', auth.verify, store.getPlaylists)
+router.put('/playlist/:id', auth.verify, store.updatePlaylist)
 
 module.exports = router

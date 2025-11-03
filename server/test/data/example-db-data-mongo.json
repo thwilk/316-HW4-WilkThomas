@@ -1,0 +1,600 @@
+{
+    "users": [
+        {
+            "firstName": "Joe",
+            "lastName": "Shmo",
+            "email": "joe@shmo.com",
+            "passwordHash": "$2a$10$dPEwsAVi1ojv2RfxxTpZjuKSAbep7zEKb5myegm.ATbQ4sJk4agGu",
+            "playlists": [
+                "68f524b611e0f3901871f166",
+                "68f524b611e0f3901871f168"
+            ]
+        },
+        {
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "email": "jane@doe.com",
+            "passwordHash": "$2a$10$dPEwsAVi1ojv2RfxxTpZjuKSAbep7zEKb5myegm.ATbQ4sJk4agGu",
+            "playlists": [
+                "68f526c4ec1ea2ad00a6fae8"
+            ]
+        },
+        {
+            "firstName": "Tom",
+            "lastName": "Wilk",
+            "email": "tom@wilk.com",
+            "passwordHash": "$2a$10$dPEwsAVi1ojv2RfxxTpZjuKSAbep7zEKb5myegm.ATbQ4sJk4agGu",
+            "playlists": [
+                "68f5242611e0f3901871f160",
+                "68f524b611e0f3901171f162",
+                "68f5242611e0f3901871f164"
+            ]
+        }
+    ],
+    "playlists": [
+        {
+            "name": "Buried Treasure",
+            "_id": "68f5242611e0f3901871f160",
+            "ownerEmail": "tom@wilk.com",
+            "songs": [
+                {
+                    "title": "Tin Man",
+                    "artist": "America",
+                    "year": 1974,
+                    "youTubeId": "zGl4PP9xaaQ"
+                },
+                {
+                    "title": "Hot Rod Lincoln",
+                    "artist": "Commander Cody & His Lost Planet Airmen",
+                    "year": 1972,
+                    "youTubeId": "90M60PzmxEE"
+                },
+                {
+                    "title": "Takin' Care of Business",
+                    "artist": "Bachman-Turner Overdrive",
+                    "year": 1973,
+                    "youTubeId": "AMVX0tzaTwk"
+                },
+                {
+                    "title": "Born On The Bayou",
+                    "artist": "Creedence Clearwater Revival",
+                    "year": 1969,
+                    "youTubeId": "fcTQCNntGEs"
+                },
+                {
+                    "title": "The Devil Went Down to Georgia",
+                    "artist": "Charlie Daniels Band",
+                    "year": 1979,
+                    "youTubeId": "sh7BZf7D5Bw"
+                },
+                {
+                    "title": "Centerfield",
+                    "artist": "John Fogerty",
+                    "year": 1985,
+                    "youTubeId": "Xq3hEMUeBGQ"
+                },
+                {
+                    "title": "Werewolves of London",
+                    "artist": "Warren Zevon",
+                    "year": 1978,
+                    "youTubeId": "qae25976UgA"
+                },
+                {
+                    "title": "Layla",
+                    "artist": "Derek and the Dominos",
+                    "year": 1970,
+                    "youTubeId": "TngViNw2pOo"
+                },
+                {
+                    "title": "Johnny B. Goode",
+                    "artist": "Chuck Berry",
+                    "year": 1958,
+                    "youTubeId": "Y-9Y4CCIWnM"
+                },
+                {
+                    "title": "Great Balls of Fire",
+                    "artist": "Jerry Lee Lewis",
+                    "year": 1957,
+                    "youTubeId": "7IjgZGhHrYY"
+                },
+                {
+                    "title": "Bad Moon Rising",
+                    "artist": "Creedence Clearwater Revival",
+                    "year": 1969,
+                    "youTubeId": "tKJwvQfraY8"
+                },
+                {
+                    "title": "Blowin' in the Wind",
+                    "artist": "Bob Dylan",
+                    "year": 1963,
+                    "youTubeId": "MMFj8uDubsE"
+                },
+                {
+                    "title": "Ventura Highway",
+                    "artist": "America",
+                    "year": 1972,
+                    "youTubeId": "tnV7dTXlXxs"
+                  },
+                  {
+                    "title": "Call Me the Breeze",
+                    "artist": "J. J. Cale",
+                    "year": 1972,
+                    "youTubeId": "DDrS9uNG83w"
+                  },
+                  {
+                    "title": "Take the Money and Run",
+                    "artist": "Steve Miller Band",
+                    "year": 1976,
+                    "youTubeId": "ido6NrjGi2o"
+                  },
+                  {
+                    "title": "In America",
+                    "artist": "Charlie Daniels Band",
+                    "year": 1979,
+                    "youTubeId": "Hm4_rXQAyLM"
+                  },
+                  {
+                    "title": "The Joker",
+                    "artist": "Steve Miller Band",
+                    "year": 1973,
+                    "youTubeId": "dV3AziKTBUo"
+                  },
+                  {
+                    "title": "Pretty Young Thing",
+                    "artist": "Michael Jackson",
+                    "year": 1983,
+                    "youTubeId": "_GlgOkBR1vU"
+                  },
+                  {
+                    "title": "Could You Be Loved",
+                    "artist": "Bob Marley & The Wailers",
+                    "year": 1980,
+                    "youTubeId": "_GlgOkBR1vU"
+                  }
+            ]
+        },
+        {
+            "name": "Pop 20",
+            "ownerEmail": "tom@wilk.com",
+            "_id": "68f524b611e0f3901171f162",
+            "songs": [
+                {
+                    "title": "Blinding Lights",
+                    "artist": "The Weeknd",
+                    "year": 2019,
+                    "youTubeId": "4NRXx6U8ABQ"
+                  },
+                  {
+                    "title": "Uptown Funk",
+                    "artist": "Mark Ronson ft. Bruno Mars",
+                    "year": 2014,
+                    "youTubeId": "OPf0YbXqDm0"
+                  },
+                  {
+                    "title": "Shape of You",
+                    "artist": "Ed Sheeran",
+                    "year": 2017,
+                    "youTubeId": "JGwWNGJdvx8"
+                  },
+                  {
+                    "title": "Old Town Road",
+                    "artist": "Lil Nas X",
+                    "year": 2019,
+                    "youTubeId": "r7qovpFAGrQ"
+                  },
+                  {
+                    "title": "rockstar",
+                    "artist": "Post Malone ft. 21 Savage",
+                    "year": 2017,
+                    "youTubeId": "UceaB4D0jpo"
+                  },
+                  {
+                    "title": "Sunflower",
+                    "artist": "Post Malone & Swae Lee",
+                    "year": 2018,
+                    "youTubeId": "ApXoWvfEYVU"
+                  },
+                  {
+                    "title": "Don't Start Now",
+                    "artist": "Dua Lipa",
+                    "year": 2019,
+                    "youTubeId": "Nz-dPOjz3bI"
+                  },
+                  {
+                    "title": "Bad Guy",
+                    "artist": "Billie Eilish",
+                    "year": 2019,
+                    "youTubeId": "DyDfgMOUjCI"
+                  },
+                  {
+                    "title": "Watermelon Sugar",
+                    "artist": "Harry Styles",
+                    "year": 2019,
+                    "youTubeId": "E07s5ZYygMg"
+                  },
+                  {
+                    "title": "Believer",
+                    "artist": "Imagine Dragons",
+                    "year": 2017,
+                    "youTubeId": "7wtfhZwyrcc"
+                  },
+                  {
+                    "title": "Circles",
+                    "artist": "Post Malone",
+                    "year": 2019,
+                    "youTubeId": "wXhTHyIgQ_U"
+                  },
+                  {
+                    "title": "Sicko Mode",
+                    "artist": "Travis Scott",
+                    "year": 2018,
+                    "youTubeId": "6ONRf7h3Mdk"
+                  },
+                  {
+                    "title": "God's Plan",
+                    "artist": "Drake",
+                    "year": 2018,
+                    "youTubeId": "xpVfcZ0ZcFM"
+                  },
+                  {
+                    "title": "Happier",
+                    "artist": "Marshmello ft. Bastille",
+                    "year": 2018,
+                    "youTubeId": "msNOsPEXVDI"
+                  },
+                  {
+                    "title": "Senorita",
+                    "artist": "Shawn Mendes & Camila Cabello",
+                    "year": 2019,
+                    "youTubeId": "PkwfwZItDlU"
+                  },
+                  {
+                    "title": "Memories",
+                    "artist": "Maroon 5",
+                    "year": 2019,
+                    "youTubeId": "SlPhMPnQ58k"
+                  },
+                  {
+                    "title": "Levitating",
+                    "artist": "Dua Lipa",
+                    "year": 2020,
+                    "youTubeId": "TUVcZfQe-K8"
+                  },
+                  {
+                    "title": "Stay",
+                    "artist": "The Kid LAROI & Justin Bieber",
+                    "year": 2021,
+                    "youTubeId": "kTJczUoc26U"
+                  },
+                  {
+                    "title": "Drivers License",
+                    "artist": "Olivia Rodrigo",
+                    "year": 2021,
+                    "youTubeId": "ZmDBbnmKpqQ"
+                  },
+                  {
+                    "title": "Blame It On Me",
+                    "artist": "Post Malone",
+                    "year": 2019,
+                    "youTubeId": "y7xFYN66Fjc"
+                  }
+            ]
+        },
+        {
+            "name":"Southern Breakup",
+            "ownerEmail": "tom@wilk.com",
+            "_id": "68f5242611e0f3901871f164",
+            "songs": [
+                {
+                  "title": "Body Like a Back Road",
+                  "artist": "Sam Hunt",
+                  "year": 2017,
+                  "youTubeId": "Mdh2p03cRfw"
+                },
+                {
+                  "title": "Meant to Be",
+                  "artist": "Bebe Rexha & Florida Georgia Line",
+                  "year": 2017,
+                  "youTubeId": "zDo0H8Fm7d0"
+                },
+                {
+                  "title": "Tequila",
+                  "artist": "Dan + Shay",
+                  "year": 2018,
+                  "youTubeId": "4cPw6Y5w3kk"
+                },
+                {
+                  "title": "Die a Happy Man",
+                  "artist": "Thomas Rhett",
+                  "year": 2015,
+                  "youTubeId": "w2C0ovJp1Kk"
+                },
+                {
+                  "title": "The Bones",
+                  "artist": "Maren Morris",
+                  "year": 2019,
+                  "youTubeId": "gvPMVKUI9go"
+                },
+                {
+                  "title": "10,000 Hours",
+                  "artist": "Dan + Shay & Justin Bieber",
+                  "year": 2019,
+                  "youTubeId": "Y2E71oe0aSM"
+                },
+                {
+                  "title": "You Proof",
+                  "artist": "Morgan Wallen",
+                  "year": 2022,
+                  "youTubeId": "3l4S3lUAvOQ"
+                },
+                {
+                  "title": "Whiskey Glasses",
+                  "artist": "Morgan Wallen",
+                  "year": 2018,
+                  "youTubeId": "Fv_iMa5E3a0"
+                },
+                {
+                  "title": "Fancy Like",
+                  "artist": "Walker Hayes",
+                  "year": 2021,
+                  "youTubeId": "G0RlPjB2LTI"
+                },
+                {
+                  "title": "Need You Now",
+                  "artist": "Lady A",
+                  "year": 2009,
+                  "youTubeId": "eM213aMKTHg"
+                },
+                {
+                  "title": "Lucid Dreams",
+                  "artist": "Juice WRLD",
+                  "year": 2018,
+                  "youTubeId": "mzB1VGEGcSU"
+                },
+                {
+                  "title": "Sad!",
+                  "artist": "XXXTentacion",
+                  "year": 2018,
+                  "youTubeId": "pgN-vvVVxMA"
+                },
+                {
+                  "title": "Everybody Dies in Their Nightmares",
+                  "artist": "XXXTentacion",
+                  "year": 2017,
+                  "youTubeId": "KzJq1iE_hlQ"
+                },
+                {
+                  "title": "Moonlight",
+                  "artist": "XXXTentacion",
+                  "year": 2018,
+                  "youTubeId": "qN4ooNx77u0"
+                },
+                {
+                  "title": "All Girls Are the Same",
+                  "artist": "Juice WRLD",
+                  "year": 2018,
+                  "youTubeId": "h3EJICKwITw"
+                },
+                {
+                  "title": "Robbery",
+                  "artist": "Juice WRLD",
+                  "year": 2019,
+                  "youTubeId": "iI34LYmJ1Fs"
+                },
+                {
+                  "title": "Hate Me",
+                  "artist": "Lil Peep & iLoveMakonnen",
+                  "year": 2019,
+                  "youTubeId": "4QJp6IYzX8Y"
+                },
+                {
+                  "title": "Star Shopping",
+                  "artist": "Lil Peep",
+                  "year": 2015,
+                  "youTubeId": "3mbvWn1EY6g"
+                },
+                {
+                  "title": "Awful Things",
+                  "artist": "Lil Peep ft. Lil Tracy",
+                  "year": 2017,
+                  "youTubeId": "b2RCf0O7gkY"
+                },
+                {
+                  "title": "Changes",
+                  "artist": "XXXTentacion",
+                  "year": 2018,
+                  "youTubeId": "VZyyvWbJ-Kc"
+                }
+              ]          
+        },
+        {
+            "_id": "68f524b611e0f3901871f166",
+            "ownerEmail": "joe@shmo.com",
+            "name": "Spacey",
+            "songs": [
+                {
+                    "title": "Across the Universe",
+                    "artist": "The Beatles",
+                    "year": 1969,
+                    "youTubeId": "90M60PzmxEE"
+                },
+                {
+                    "title": "Astronomy Domine",
+                    "artist": "Pink Floyd",
+                    "year": 1967,
+                    "youTubeId": "8UbNbor3OqQ"
+                },
+                {
+                    "title": "Black Hole Sun",
+                    "artist": "Soundgarden",
+                    "year": 1994,
+                    "youTubeId": "3mbBbFH9fAg"
+                },
+                {
+                    "title": "Brain Damage/Eclipse",
+                    "artist": "Pink Floyd",
+                    "year": 1973,
+                    "youTubeId": "g1OOQP1-wOE"
+                },
+                {
+                    "title": "Fly Me to the Moon",
+                    "artist": "Frank Sinatra",
+                    "year": 1964,
+                    "youTubeId": "ZEcqHA7dbwM"
+                },
+                {
+                    "title": "In the Meantime",
+                    "artist": "Spacehog",
+                    "year": 1994,
+                    "youTubeId": "PCsGRCf8T9Y"
+                },
+                {
+                    "title": "Major Tom",
+                    "artist": "Peter Shilling",
+                    "year": 1982,
+                    "youTubeId": "wO0A0XcWy88"
+                },
+                {
+                    "title": "Man on the Moon",
+                    "artist": "REM",
+                    "year": 1992,
+                    "youTubeId": "dLxpNiF0YKs"
+                },
+                {
+                    "title": "Rocket Man",
+                    "artist": "Elton John",
+                    "year": 1972,
+                    "youTubeId": "DtVBCG6ThDk"
+                },
+                {
+                    "title": "Set the Controls for the Heart of the Sun",
+                    "artist": "Pink Floyd",
+                    "year": 1968,
+                    "youTubeId": "qupVCTn5Dko"
+                },
+                {
+                    "title": "Space Oddity",
+                    "artist": "David Bowie",
+                    "year": 1969,
+                    "youTubeId": "iYYRH4apXDo"
+                },
+                {
+                    "title": "Space Song",
+                    "artist": "Beach House",
+                    "year": 2015,
+                    "youTubeId": "RBtlPT23PTM"
+                },
+                {
+                    "title": "Starless",
+                    "artist": "King Crimson",
+                    "year": 1974,
+                    "youTubeId": "OfR6_V91fG8"
+                },
+                {
+                    "title": "Starman",
+                    "artist": "David Bowie",
+                    "year": 1972,
+                    "youTubeId": "t365MuktYQs"
+                },
+                {
+                    "title": "Starship Trooper",
+                    "artist": "Yes",
+                    "year": 1971,
+                    "youTubeId": "xk4U8BembHM"
+                }
+            ]
+        },
+        {
+            "_id": "68f524b611e0f3901871f168",
+            "ownerEmail": "joe@shmo.com",
+            "name": "Any Colour You Like",
+            "songs": [
+                {
+                    "title": "99 Red Balloons",
+                    "artist": "Nena",
+                    "year": 1984,
+                    "youTubeId": "Fpu5a0Bl8eY"
+                },
+                {
+                    "title": "Big Blue Sun",
+                    "artist": "Adrian Belew",
+                    "year": 1986,
+                    "youTubeId": "DMkEmW2awQw"
+                },
+                {
+                    "title": "Black Dog",
+                    "artist": "Led Zeppelin",
+                    "year": 1971,
+                    "youTubeId": "2KPEHohJMuw"
+                },
+                {
+                    "title": "Golden Brown",
+                    "artist": "The Stranglers",
+                    "year": 1981,
+                    "youTubeId": "7KIHvuMl4Kk"
+                },
+                {
+                    "title": "Goodbye Yellow Brick Road",
+                    "artist": "Elton John",
+                    "year": 1973,
+                    "youTubeId": "wy709iNG6i8"
+                },
+                {
+                    "title": "Green is the Colour",
+                    "artist": "Pink Floyd",
+                    "year": 1969,
+                    "youTubeId": "4XeWngFZaa8"
+                },
+                {
+                    "title": "In the Court of the Crimson King",
+                    "artist": "King Crimson",
+                    "year": 1969,
+                    "youTubeId": "ukgraQ-xkp4"
+                },
+                {
+                    "title": "Orange Crush",
+                    "artist": "REM",
+                    "year": 1988,
+                    "youTubeId": "_mSmOcmk7uQ"
+                },
+                {
+                    "title": "Pink Houses",
+                    "artist": "John Mellancamp",
+                    "year": 1983,
+                    "youTubeId": "qOfkpu6749w"
+                },
+                {
+                    "title": "Purple Rain",
+                    "artist": "Prince",
+                    "year": 1984,
+                    "youTubeId": "TvnYmWpD_T8"
+                },
+                {
+                    "title": "White Lines",
+                    "artist": "Grandmaster Flash and the Furious Five",
+                    "year": 1983,
+                    "youTubeId": "DwRXI-y6M9o"
+                }
+            ]
+        },
+        {
+            "_id": "68f526c4ec1ea2ad00a6fae8",
+            "ownerEmail": "jane@doe.com",
+            "name": "Don't be Rude",
+            "songs": [
+                {
+                    "title": "A Message to You Rudy",
+                    "artist": "The Specials",
+                    "year": 1979,
+                    "youTubeId": "cntvEDbagAw"
+                },
+                {
+                    "title": "Rudie Can't Fail",
+                    "artist": "The Clash",
+                    "year": 1979,
+                    "youTubeId": "uEK9oK02D1M"
+                }
+            ]
+        }
+    ]
+}
