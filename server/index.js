@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 
 // CREATE OUR SERVER
 dotenv.config()
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
 const app = express()
 
 // SETUP THE MIDDLEWARE

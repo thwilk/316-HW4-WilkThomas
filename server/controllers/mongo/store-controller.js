@@ -1,5 +1,6 @@
 const Playlist = require('../../models/mongo/playlist-model')
 const User = require('../../models/mongo/user-model');
+const { formatPlaylist, response } = require('../responseFormat');
 const auth = require('../../auth')
 /*
     This is our back-end API. It provides all the data services
@@ -39,7 +40,7 @@ createPlaylist = (req, res) => {
                     .save()
                     .then(() => {
                         return res.status(201).json({
-                            playlist: playlist
+                            playlist: formatPlaylist(playlist)
                         })
                     })
                     .catch(error => {
@@ -74,7 +75,7 @@ deletePlaylist = async (req, res) => {
                 if (user._id == req.userId) {
                     console.log("correct user!");
                     Playlist.findOneAndDelete({ _id: req.params.id }, () => {
-                        return res.status(200).json({});
+                        return res.status(200).json({success: true});
                     }).catch(err => console.log(err))
                 }
                 else {
@@ -96,6 +97,8 @@ getPlaylistById = async (req, res) => {
     }
     console.log("Find Playlist with id: " + JSON.stringify(req.params.id));
 
+    console.log("\n\n"+req.params.id+"\n\n");
+
     await Playlist.findById({ _id: req.params.id }, (err, list) => {
         if (err) {
             return res.status(400).json({ success: false, error: err });
@@ -109,7 +112,7 @@ getPlaylistById = async (req, res) => {
                 console.log("req.userId: " + req.userId);
                 if (user._id == req.userId) {
                     console.log("correct user!");
-                    return res.status(200).json({ success: true, playlist: list })
+                    return res.status(200).json({ success: true, playlist: formatPlaylist(list) })
                 }
                 else {
                     console.log("incorrect user!");
@@ -176,12 +179,16 @@ getPlaylists = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `Playlists not found` })
         }
-        return res.status(200).json({ success: true, data: playlists })
+
+        const cor = playlists.map(playlist => formatPlaylist(playlist));
+
+        return res.status(200).json({ success: true, data: cor })
     }).catch(err => console.log(err))
 }
 updatePlaylist = async (req, res) => {
     if(auth.verifyUser(req) === null){
         return res.status(400).json({
+            success: false,
             errorMessage: 'UNAUTHORIZED'
         })
     }
@@ -200,7 +207,7 @@ updatePlaylist = async (req, res) => {
         console.log("playlist found: " + JSON.stringify(playlist));
         if (err) {
             return res.status(404).json({
-                err,
+                success: false,
                 message: 'Playlist not found!',
             })
         }
@@ -229,7 +236,7 @@ updatePlaylist = async (req, res) => {
                         .catch(error => {
                             console.log("FAILURE: " + JSON.stringify(error));
                             return res.status(404).json({
-                                error,
+                                success: false,
                                 message: 'Playlist not updated!',
                             })
                         })
