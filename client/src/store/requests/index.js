@@ -49,7 +49,6 @@ export const deletePlaylistById = (id) => {
 
 export const getPlaylistById = (id) => {
   
-  console.log("\n\n GETTING ID: " + id )
   return fetch(url + `/playlist/${id}`,
     {
       method: 'GET',

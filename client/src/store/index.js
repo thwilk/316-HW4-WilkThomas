@@ -240,22 +240,15 @@ function GlobalStoreContextProvider(props) {
         // GET THE LIST
         async function asyncChangeListName(id) {
             let response = await storeRequestSender.getPlaylistById(id);
-            console.log("[debug] good1");
-            console.log(response.success);
 
             if (response.success) {
-                console.log("[debug] bad");
                 let playlist = response.playlist;
                 playlist.name = newName;
 
-                console.log(response.playlist);
-                console.log(playlist.name);
-                console.log("\n\n{UPDATE]");
 
 
 
                 async function updateList(playlist) {
-                    console.log("\n\n{UPDATE]");
                     response = await storeRequestSender.updatePlaylistById(playlist._id, playlist);
                     if (response.success) {
 
