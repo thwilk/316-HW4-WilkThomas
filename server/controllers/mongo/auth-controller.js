@@ -1,5 +1,5 @@
 const auth = require('../../auth')
-const { User, Playlist  }= require('../../models/postgres/association'); 
+const User = require('../../models/mongo/user-model')
 const bcrypt = require('bcryptjs')
 
 getLoggedIn = async (req, res) => {
