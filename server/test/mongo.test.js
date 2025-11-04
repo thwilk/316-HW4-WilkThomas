@@ -19,13 +19,7 @@ const mongoose = require('mongoose')
  * Executed once before all tests are performed.
  */
 beforeAll(async () => {
-    // SETUP THE CONNECTION VIA MONGOOSE JUST ONCE - IT IS IMPORTANT TO NOTE THAT INSTEAD
-    // OF DOING THIS HERE, IT SHOULD BE DONE INSIDE YOUR Database Manager (WHICHEVER)
-    await mongoose
-        .connect(process.env.DB_CONNECT, { useNewUrlParser: true })
-        .catch(e => {
-            console.error('Connection error', e.message)
-        })
+
 });
 
 /**

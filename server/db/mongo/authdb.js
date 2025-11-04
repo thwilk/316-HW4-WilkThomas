@@ -2,8 +2,8 @@
 const User = require('../../models/mongo/user-model');
 const bcrypt = require('bcryptjs');
 
-const findUserById = async (userId) => {
-    return await User.findById(userId);
+const findUserById = async (id) => {
+    return await User.findById(id);
 };
 
 const findUserByEmail = async (email) => {

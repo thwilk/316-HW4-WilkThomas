@@ -11,7 +11,7 @@ const createPlaylist = async (req, res) => {
     if (!name) return res.status(400).json({ success: false, error: 'You must provide a Playlist name' });
 
     try {
-        const playlist = await storedb.createPlaylistForUser(userId, { name, songs });
+        const playlist = await storedb.createPlaylist(userId, { name, songs });
         return res.status(201).json({ playlist: formatPlaylist(playlist) });
     } catch (err) {
         console.error(err);
@@ -28,7 +28,7 @@ const deletePlaylist = async (req, res) => {
     if (!playlistId) return res.status(400).json({ success: false, error: 'Playlist ID required' });
 
     try {
-        await storedb.deletePlaylistById(userId, playlistId);
+        await storedb.deletePlaylist(userId, playlistId);
         return res.status(200).json({ success: true });
     } catch (err) {
         console.error(err);
@@ -45,7 +45,7 @@ const getPlaylistById = async (req, res) => {
     if (!playlistId) return res.status(400).json({ success: false, error: 'Playlist ID required' });
 
     try {
-        const playlist = await storedb.getPlaylistByIdForUser(userId, playlistId);
+        const playlist = await storedb.getPlaylistById(userId, playlistId);
         return res.status(200).json({ success: true, playlist: formatPlaylist(playlist) });
     } catch (err) {
         console.error(err);
@@ -59,7 +59,7 @@ const getPlaylistPairs = async (req, res) => {
     if (!userId) return res.status(401).json({ success: false, errorMessage: 'UNAUTHORIZED' });
 
     try {
-        const pairs = await storedb.getPlaylistPairsForUser(userId);
+        const pairs = await storedb.getPlaylistPairs(userId);
         return res.status(200).json({ success: true, idNamePairs: pairs });
     } catch (err) {
         console.error(err);
@@ -72,7 +72,7 @@ const getPlaylists = async (req, res) => {
     if (!userId) return res.status(401).json({ success: false, errorMessage: 'UNAUTHORIZED' });
 
     try {
-        const playlists = await storedb.getAllPlaylists();
+        const playlists = await storedb.getPlaylists();
         const data = playlists.map(pl => formatPlaylist(pl));
         return res.status(200).json({ success: true, data });
     } catch (err) {
@@ -91,7 +91,7 @@ const updatePlaylist = async (req, res) => {
     if (!playlistId || !playlistData) return res.status(400).json({ success: false, error: 'Playlist ID and playlist data required' });
 
     try {
-        const playlist = await storedb.updatePlaylistById(userId, playlistId, playlistData);
+        const playlist = await storedb.updatePlaylist(userId, playlistId, playlistData);
         return res.status(200).json({
             success: true,
             id: playlist.id,

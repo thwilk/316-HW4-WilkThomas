@@ -1,8 +1,11 @@
 const { User, Playlist } = require('../../models/postgres/association');
 
-const createPlaylistForUser = async (userId, { name, songs }) => {
+const createPlaylist = async (userId, body) => {
     const user = await User.findByPk(userId);
     if (!user) throw new Error('User not found');
+
+    const songs = body.songs
+    const name = body.name
 
     const playlist = await Playlist.create({
         name,
@@ -13,55 +16,55 @@ const createPlaylistForUser = async (userId, { name, songs }) => {
     return playlist;
 };
 
-const deletePlaylistById = async (userId, playlistId) => {
-    const playlist = await Playlist.findByPk(playlistId);
+const deletePlaylist = async (playlistId, userId) => {
+    const playlist = await Playlist.findByPk(userId);
     if (!playlist) throw new Error('Playlist not found');
 
-    if (playlist.userId !== userId) throw new Error('Forbidden');
+    if (playlist.userId !== playlistId) throw new Error('Forbidden');
 
     await playlist.destroy();
     return true;
 };
 
-const getPlaylistByIdForUser = async (userId, playlistId) => {
-    const playlist = await Playlist.findByPk(playlistId);
+const getPlaylistById = async (playlistId, userId) => {
+    const playlist = await Playlist.findByPk(userId);
     if (!playlist) throw new Error('Playlist not found');
 
-    if (playlist.userId !== userId) throw new Error('Forbidden');
+    if (playlist.userId !== playlistId) throw new Error('Forbidden');
 
     return playlist;
 };
 
-const getPlaylistPairsForUser = async (userId) => {
+const getPlaylistPairs = async (userId) => {
     const user = await User.findByPk(userId, { include: Playlist });
     if (!user) throw new Error('User not found');
 
     return user.Playlists.map(pl => ({ _id: pl.id, name: pl.name }));
 };
 
-const getAllPlaylists = async () => {
+const getPlaylists = async () => {
     const playlists = await Playlist.findAll();
     return playlists;
 };
 
-const updatePlaylistById = async (userId, playlistId, playlistData) => {
-    const playlist = await Playlist.findByPk(playlistId);
+const updatePlaylist = async (playlistId, userId, body) => {
+    const playlist = await Playlist.findByPk(userId);
     if (!playlist) throw new Error('Playlist not found');
 
-    if (playlist.userId !== userId) throw new Error('Forbidden');
+    if (playlist.userId !== playlistId) throw new Error('Forbidden');
 
-    playlist.name = playlistData.name;
-    playlist.songs = playlistData.songs || [];
+    playlist.name = body.name;
+    playlist.songs = body.songs || [];
     await playlist.save();
 
     return playlist;
 };
 
 module.exports = {
-    createPlaylistForUser,
-    deletePlaylistById,
-    getPlaylistByIdForUser,
-    getPlaylistPairsForUser,
-    getAllPlaylists,
-    updatePlaylistById
+    createPlaylist,
+    deletePlaylist,
+    getPlaylistById,
+    getPlaylistPairs,
+    getPlaylists,
+    updatePlaylist
 };
